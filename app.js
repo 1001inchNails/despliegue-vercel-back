@@ -53,13 +53,13 @@ app.use((req, res, next) => {
 
 
 
-app.get('/users',async(req, res)=>{  // todos los usuarios
+app.get('/api/users',async(req, res)=>{  // todos los usuarios
   let usuarios=await listadoUsers();
   //console.log(usuarios);
   res.json(usuarios);
 });
 
-app.get('/users/:nombre', async(req, res)=>{  // busqueda por nombre
+app.get('/api/users/:nombre', async(req, res)=>{  // busqueda por nombre
   let resultado=[];
   let usuariosB=await listadoUsers();
   let userNombre=req.params.nombre;
@@ -80,7 +80,7 @@ app.get('/users/:nombre', async(req, res)=>{  // busqueda por nombre
   }
 });
 
-app.post('/datos', async(req,res)=>{
+app.post('/api/datos', async(req,res)=>{
   try{
     let usuariosC=await listadoUsers();
     let nuevoIndice=(usuariosC.length);  // calculamos nuevo indice
